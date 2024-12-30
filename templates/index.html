@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Sport Store</title>
+</head>
+<body>
+  <header>
+    <h1>Sport Store</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}" class="btn">Главная</a></li>
+        <li><a href="{{ url_for('contact') }}" class="btn">Контакты</a></li>
+        {% if not session.get('user_id') %}
+          <li><a href="{{ url_for('login') }}" class="btn">Вход</a></li>
+          <li><a href="{{ url_for('register') }}" class="btn">Регистрация</a></li>
+        {% else %}
+          <li><a href="#" class="btn">Привет, {{ session.get('user_name') }}</a></li>
+          <li><a href="{{ url_for('logout') }}" class="btn">Выйти</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+ 
+<main>
+  <div class="каталог">
+    <h1 class="k_h1">Каталог</h1>
+    <div class="corz_div">
+      <a href="{{ url_for('corz') }}">
+        <img src="/static/img/corz1.gif" class="corz_img">
+      </a>
+    </div>
+  </div>
+
+  <div id="main">
+    <ul id="tovar">
+      {% for item in goods %}
+        <li>
+          <p id="title">{{ item[0] }}</p>
+          <img src="/static/img/{{ item[1] }}" alt="{{ item[0] }}">
+          <p id="comments">{{ item[2] }}</p>
+          <div class="btn11">
+            <p class="btn1" id="price">{{ item[3] }} ₸.</p>
+          </div>
+          <!-- Add to Cart Button -->
+          <form action="{{ url_for('add_to_cart') }}" method="post">
+            <input type="hidden" name="title" value="{{ item[0] }}">
+            <input type="hidden" name="price" value="{{ item[3] }}">
+            <button type="submit" class="btn1">Добавить в корзину</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Sport Store</p>
+  <p>&copy; Валь Олег из 304 группы</p>
+</footer>
+
+</body>
+</html>

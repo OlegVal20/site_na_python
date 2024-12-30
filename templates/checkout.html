@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/op.css">
+    <title>Оплата</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Оплата</h1>
+        <form action="{{ url_for('checkout') }}" method="post">
+            <input type="text" class="form-control" name="card_number" placeholder="Номер карты" required>
+            <input type="text" class="form-control" name="card_expiry" placeholder="Дата окончания (MM/YY)" required>
+            <input type="text" class="form-control" name="card_cvv" placeholder="CVV" required>
+            <p>Общая сумма: <b>{{ total_amount }} </b>₸</p>
+            <button class="btn" type="submit">Оплатить</button>
+        </form>
+        <a href="{{ url_for('corz') }}">Назад в корзину</a>
+    </div>
+</body>
+</html>

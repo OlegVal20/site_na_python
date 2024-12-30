@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Корзина</title>
+</head>
+<body>
+  <header>
+    <h1>Корзина</h1>
+    <a href="{{ url_for('index') }}" class="btn">Вернуться в магазин</a>
+  </header>
+
+  <main>
+    <table class="table-bordered">
+      <thead>
+        <tr>
+          <th>Название товара</th>
+          <th>Цена</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart %}
+          <tr>
+            <td>{{ item['title'] }}</td>
+            <td>{{ item['price'] }} ₸</td>
+            <td>
+              <form action="{{ url_for('remove_from_cart') }}" method="post" style="display:inline;">
+                <input type="hidden" name="item_id" value="{{ item['id'] }}">
+                <button type="submit" class="btn">Удалить</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if not cart %}
+      <p style="text-align: center; font-size: 50px;">Ваша корзина пуста.</p>
+    {% else %}
+      <p style="text-align: center; font-size: 20px;">Общая сумма: {{ total_amount }} ₸</p>
+      <a href="{{ url_for('checkout') }}" class="btn">Перейти к оплате</a>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Sport Store</p>
+  </footer>
+</body>
+</html>

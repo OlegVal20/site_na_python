@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/contact.css">
+  <title>Sport Store</title>
+</head>
+<body>
+  <header>
+    <h1>Sport Store</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}" class="btn">Главная</a></li>
+        <li><a href="{{ url_for('contact') }}" class="btn">Контакты</a></li>
+          <li><a href="{{ url_for('login') }}" class="btn">Вход</a></li>
+          <li><a href="{{ url_for('register') }}" class="btn">Регистрация</a></li>
+          <li><p>Привет <a href="/exit.php" class="btn">Выйти</a></p></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+  <div class="contact-block">
+    <img src="../img/phone_icon.png" alt="Phone Icon">
+    <a href="tel:+77077395786" class="btn">123-456-789</a>
+  </div>
+  <div class="contact-block">
+    <img src="../img/whatsapp_icon.png" alt="WhatsApp Icon">
+    <a href="https://wa.me/+77077395786" class="btn">WhatsApp</a>
+  </div>
+  <div class="contact-block">
+    <img src="../img/email_icon.png" alt="Email Icon">
+    <a href="mailto:olegwal5588@gmail.com" class="btn">olegwal5588@gmail.com</a>
+  </div>
+</main>
+  <footer >
+    <p>&copy; 2024 Sport Store</p>
+    <p>&copy; Валь Олег из 304 группы </p>
+  </footer>
+</body>
+</html>

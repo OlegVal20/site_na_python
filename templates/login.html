@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reg.css">
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: #333;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+    <title>Авторизация</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Авторизация</h1>
+        <form action="/login" method="post">
+            <input type="text" class="form-control" name="login" id="login" placeholder="Логин" required>
+            <input type="password" class="form-control" name="pass" id="pass" placeholder="Пароль" required>
+            <button class="btn" type="submit">Войти</button>
+        </form>
+        <a href="/register">Зарегистрироваться</a>
+    </div>
+</body>
+</html>
